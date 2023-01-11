@@ -1,0 +1,33 @@
+{
+    "id": 555,
+    "nome": "Luca",
+    "cognome": "Rossi",
+    "codFiscale": "RFGDFUH5664DGSF",
+    "eta": 25,
+    "sposato": false,
+    "online": true,
+    "indirizzo": {
+        "via": "Via Fausto Gullo, 40",
+        "citta": "Roma",
+        "provincia": "RM",
+        "codPostale": "00155"
+    },
+    "recapiti": {
+        "email": ["daniele.mercuri87@gmail.com", "giulia.rossi1985@tiscali.it"],
+        "telefono": [{
+            "tipo": "ufficio",
+            "numero": "065484521"
+        },
+        {
+            "tipo": "cellulare",
+            "numero": "3482532128"
+        }
+    ]
+    },
+    "amici": [
+        {
+            "nome": "Mario",
+            "cognome": "Verdi"
+        }
+    ]
+}

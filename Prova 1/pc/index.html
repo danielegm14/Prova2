@@ -34,31 +34,35 @@
 
         });
 
-
-
-
-
-
-
-
-
-
-
     </script> -->
+ 
+    <script>
+        let requestURL = './utente.json';
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        // console.log(parses.nome, parses.cognome, '\n' , parses.indirizzo.via, '\n' , parses);
+        
+        request.onload = function () {
+            const utente = request.response;
+            console.log(utente.indirizzo.via);
+        }
 
 
+    </script>
 
     <div id="like_button_container"></div>
 
 
-<!-- Carica React. -->
-  <!-- Nota: quando rilasci il codice in produzione, sostituisci "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Carica React. -->
+    <!-- Nota: quando rilasci il codice in produzione, sostituisci "development.js" con "production.min.js". -->
+    <script src="../ReactProjects/my-app/node_modules/react/umd/react.development.js" crossorigin></script>
+    <script src="../ReactProjects/my-app/node_modules/react-dom/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Carica il nostro componente React. -->
-  <script src="like_button.js"></script>
-
+    <!-- Carica il nostro componente React. -->
+    <script src="like_button.js"></script>
+    
 </body>
 
 
