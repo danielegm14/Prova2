@@ -1,9 +1,9 @@
 {
     "id": 555,
-    "nome": "Luca",
-    "cognome": "Rossi",
-    "codFiscale": "RFGDFUH5664DGSF",
-    "eta": 25,
+    "nome": "Daniele",
+    "cognome": "Mercuri",
+    "codFiscale": "MRCDNL87T01D773S",
+    "eta": 35,
     "sposato": false,
     "online": true,
     "indirizzo": {

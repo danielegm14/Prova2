@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 
     <script src="..\jquery\jquery-v3.6.3.js"></script>
+    <script>var url = "../ReactProjects/my-app/src/";</script>
     <style>
         #saluto{
             background-color: red;
@@ -18,42 +20,18 @@
     </style>
 </head>
 <body>
-    <!-- 
+   
     <button id="btn1">Saluto</button>
     <div id="div1">
     <p id="saluto">Ciao a tutti belli e brutti</p>
     </div>
-    <script>
-        $(document).ready(function(){
-    //        $('#saluto').hide();
-        });
 
-       
-
-        $('#btn1').click(function(){
-            $('#saluto').toggle();
-
-        });
-     -->
-
-
-    <!-- <script> 
-        let requestURL = '../json/utente.json';
-        let request = new XMLHttpRequest();
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-        // console.log(parses.nome, parses.cognome, '\n' , parses.indirizzo.via, '\n' , parses);
-        
-        request.onload = function () {
-            const utente = request.response;
-            console.log(utente);
-        }
-
-
-    </script>-->
-
+    <div id="name"></div>
+    <div id="sur_name"></div>
+    
     <div id="like_button_container"></div>
+    
+    
 
 
      <!-- Carica React.
@@ -63,18 +41,20 @@
     <script src="../ReactProjects/my-app/node_modules/react-dom/umd/react-dom.development.js" crossorigin></script>
 
     <!-- Carica il nostro componente React. -->
-    <script src="..\ReactProjects\my-app\src\like_button.js"></script> 
+    <script src="..\ReactProjects\my-app\src\likeButton.js"></script> 
+    <script src="..\ReactProjects\my-app\src\datiJson.js"></script> 
+    <script src="..\ReactProjects\my-app\src\db_insert.js"></script> 
     
+    
+    <br><br><br>
+    <input id="input_name" type="text" placeholder="Inserisci il nome...">
+    <input id="input_sur_name" type="text" placeholder="Inserisci il cognome...">
+    <br>
+    <button id="btn2">SEND</button>
 
 
 
-
-
-
-
-
-
-
+    
 
 
 
