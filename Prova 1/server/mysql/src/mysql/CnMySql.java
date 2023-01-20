@@ -34,8 +34,7 @@ public class CnMySql {
 	// query INSERT INTO 
 	public String insertSql(String table, String colonne) {
 		String insertSql = "INSERT INTO " + table + " (" + colonne + ") VALUES (" + "'" + getNome() + "'" + ", " + "'" + getCognome() + "'" +");";
-		String insertSqll = "SELECT * FROM utente;";
-		return insertSqll;
+		return insertSql;
 	}
 	
 	//Statement st; permette di costruire le query
