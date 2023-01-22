@@ -28,6 +28,7 @@ root.render(e(likeButton));
 
 $(document).ready(function(){
   //        $('#saluto').hide();
+
       });
 
      
@@ -36,4 +37,20 @@ $(document).ready(function(){
           $('#saluto').toggle();
 
       });
+
+      function sql(params) {
+        var java = require("java");
+        java.classpath.push("../server/mysql/src/mysql/CnMySql.java");
+        let pack = "mysql.";
+        let classe = "CnMySql";
+        let metodo = "executeSql";
+        let table = "utente";
+        let colonne = "nome, cognome";
+        let server = "com.mysql.cj.jdbc.Driver";
+        let nome = "Vercingetorige";
+        let cognome = "Callisto";
+        
+        java.callStaticMethodSync(pack + classe, metodo, table, colonne, server, nome, cognome);
+        console.log("Finito");
+        }
 
