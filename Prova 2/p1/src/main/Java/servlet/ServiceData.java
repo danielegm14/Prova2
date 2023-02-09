@@ -1,9 +1,11 @@
 package servlet;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.JSONException;
+import org.json.simple.JSONValue;
 
 import java.io.IOException;
 import java.sql.*;
@@ -79,7 +81,7 @@ public class ServiceData {
         return selectSql;
     }
 
-    public void get(String tables, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException {
+    public void get(String tables, HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException {
         String table = tables;
         String colonne = "*";
         String sql = _selectSql(table, colonne);
@@ -90,81 +92,23 @@ public class ServiceData {
             st = cn.createStatement(); // creo sempre uno statement sulla
             // connessione
             rs = st.executeQuery(sql); // faccio la query su uno statement
-            String result = this.convert(rs).toString();
 
+      //      ArrayList arr = new ArrayList<>();
+      //      arr = (ArrayList) rs.getArray("nome");
+      //      String a = (String) arr.get(0);
 
             while (rs.next() == true) {
                 System.out.println(rs.getString("nome") + "\t" + rs.getString("cognome"));
-                resp.getWriter().append(rs.getString("nome") + "\t" + rs.getString("cognome") + "\n");
-                resp.getWriter().append(result);
+              //  resp.getWriter().append(rs.getString("nome") + "\t" + rs.getString("cognome") + "\n");
+                resp.getWriter().append(this.convert(rs));
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println("errore:" + e.getMessage());
         } // fine try-catch
         cn.close(); // chiusura connessione
+
     }
-    public JSONArray convert( ResultSet rs )
-            throws SQLException, JSONException
-    {
-        JSONArray json = new JSONArray();
-        ResultSetMetaData rsmd = rs.getMetaData();
 
-        while(rs.next()) {
-            int numColumns = rsmd.getColumnCount();
-            JSONObject obj = new JSONObject();
-
-            for (int i=1; i<numColumns+1; i++) {
-                String column_name = rsmd.getColumnName(i);
-
-                if(rsmd.getColumnType(i)== Types.ARRAY){
-                    obj.put(column_name, rs.getArray(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.BIGINT){
-                    obj.put(column_name, rs.getInt(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.BOOLEAN){
-                    obj.put(column_name, rs.getBoolean(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.BLOB){
-                    obj.put(column_name, rs.getBlob(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.DOUBLE){
-                    obj.put(column_name, rs.getDouble(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.FLOAT){
-                    obj.put(column_name, rs.getFloat(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.INTEGER){
-                    obj.put(column_name, rs.getInt(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.NVARCHAR){
-                    obj.put(column_name, rs.getNString(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.VARCHAR){
-                    obj.put(column_name, rs.getString(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.TINYINT){
-                    obj.put(column_name, rs.getInt(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.SMALLINT){
-                    obj.put(column_name, rs.getInt(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.DATE){
-                    obj.put(column_name, rs.getDate(column_name));
-                }
-                else if(rsmd.getColumnType(i)== Types.TIMESTAMP){
-                    obj.put(column_name, rs.getTimestamp(column_name));
-                }
-                else{
-                    obj.put(column_name, rs.getObject(column_name));
-                }
-            }
-
-            json.add(obj);
-        }
-
-        return json;
-    }
 
     public String setNome(String nome) {
         return this._nome = nome;
@@ -180,6 +124,26 @@ public class ServiceData {
 
     public String getCognome() {
         return this._cognome;
+    }
+
+    public String convert(ResultSet resultSet) throws Exception {
+
+        JSONArray jsonArray = new JSONArray();
+
+
+        while (resultSet.next()) {
+
+            int columns = resultSet.getMetaData().getColumnCount();
+            JSONObject obj = new JSONObject();
+
+            for (int i = 0; i < columns; i++)
+                obj.put(resultSet.getMetaData().getColumnLabel(i + 1).toLowerCase(), resultSet.getObject(i + 1));
+
+            jsonArray.add(obj);
+        }
+        String array = jsonArray.toString();
+        System.out.println(array);
+        return array;
     }
 
 	/*

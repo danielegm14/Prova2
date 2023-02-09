@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6758ce02-50da-41f7-9a6d-567b99e582e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Prova 2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jakarta_servlet_api_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_321.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Java/servlet/ServletBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/body.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/body.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Java/servlet/ServiceData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Java/servlet/ServiceData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Java/servlet/ServletBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Java/servlet/ServletBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/servlet/ServiceData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/servlet/ServiceData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/servlet/ServletBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/servlet/ServletBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/p1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/p1.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/p1/WEB-INF/classes/servlet/ServiceData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/p1/WEB-INF/classes/servlet/ServiceData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/p1/WEB-INF/classes/servlet/ServletBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/p1/WEB-INF/classes/servlet/ServletBase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

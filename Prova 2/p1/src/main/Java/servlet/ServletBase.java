@@ -47,8 +47,8 @@ public class ServletBase extends HttpServlet{
         //String nome = (String) param.get("nome");
        // String cognome = (String) param.get("cognome");
      //   String table = (String) param.get("table");
-        sql.get(params, resp);
+        sql.get(params, req, resp);
         //sql.insert(nome, cognome);
-        //resp.getWriter().append("aggiunto correttamente");
+      //  resp.getWriter().append(params + " aggiunto correttamente");
     }
 }

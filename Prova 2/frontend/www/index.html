@@ -19,6 +19,8 @@
     <button id="clicca" onclick="getValueInput()" title="Cerca nel database">Cerca</button>
 
     <script>
+
+
         const Http = new XMLHttpRequest();
         const getInsertInput = () =>{
             let filter = {};
@@ -40,15 +42,26 @@
         }
 
         const getValueInput = () =>{
+            let filter = {};
+            filter.nome = document.querySelector("#name").value;
+            filter.cognome = document.querySelector("#surname").value;
+
+            let obj = JSON.stringify(filter)
             let table = document.querySelector("#table").value;
-            let param = "in="+table;
-            const url = "/TestApp-server/Test?"+param;
-            Http.open("GET", url, true);
-            Http.send();
+            let params = "in="+table;
+            const url = "/TestApp-server/Test";
+            Http.open("POST", url, true);
+            Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            Http.send(params);
 
             Http.onreadystatechange = (e) => {
                 let dati = Http.response;
-                console.log(dati); 
+                if(dati){
+                    console.log(dati); 
+                    dataObj = JSON.parse(dati);
+                    console.log(dataObj); 
+                }
+                
                 
             }
         }
