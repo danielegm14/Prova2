@@ -1,11 +1,7 @@
 var gulp = require('gulp');
-
-var uglify =     require('gulp-uglify');
 var concat =     require('gulp-concat');
-// var stripDebug = require('gulp-strip-debug');
 var size =       require('gulp-size');
 var replace =   require("gulp-replace");
-var csso = require('gulp-csso');
 var autoprefix = require('gulp-autoprefixer');
 const INPUT = "src/";
 const OUTPUT = "build/src/";
@@ -15,20 +11,12 @@ var targets_core = [
   "ConnectDb"
 ];
 
-function _allJs(targets_core) {
-
-	for(var i = 0; i < targets_core.length; i++) {
-	return targets_core[i];
-	}
-	
-};
-
 gulp.task("scripts",function() {
   return gulp.src(INPUT + "js/**/*.js")
   .pipe(size())
   .pipe(gulp.dest(OUTPUT + "js"));
 });
-
+ 
 gulp.task("scriptsAll",function() {
   return _buildLibJs();
 });
