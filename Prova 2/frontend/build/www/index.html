@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <script type="text/javascript" src="../src/js/all/script-all.js"></script>
+</head>
+<body>
+    <input type="text" id="name" placeholder="inserisci nome...">
+    <br>
+    <input type="text" id="surname" placeholder="inserisci cognome...">
+    <br>
+    <button id="clicca" onclick="MyApp.ConnectDb.prototype.getInsertInput()" title="Aggiungi al database">Aggiungi</button>
+    <br> <br> <br>
+    <input type="text" id="table" placeholder="nome tabella...">
+    <br>
+    <button id="clicca" onclick="MyApp.ConnectDb.prototype.getValueInput()" title="Cerca nel database">Cerca</button>
+    <p id="demo"></p>
+</body>
+</html>

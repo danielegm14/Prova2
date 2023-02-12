@@ -5,81 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <script src="../src/jquery-3.6.3.js"></script>
+    <script type="text/javascript" src="../src/js/all/script-all.js"></script>
 </head>
 <body>
     <input type="text" id="name" placeholder="inserisci nome...">
     <br>
     <input type="text" id="surname" placeholder="inserisci cognome...">
     <br>
-    <button id="clicca" onclick="getInsertInput()" title="Aggiungi al database">Aggiungi</button>
+    <button id="clicca" onclick="_APP_NAME_SPACE__.ConnectDb.prototype.getInsertInput()" title="Aggiungi al database">Aggiungi</button>
     <br> <br> <br>
     <input type="text" id="table" placeholder="nome tabella...">
     <br>
-    <button id="clicca" onclick="getValueInput()" title="Cerca nel database">Cerca</button>
-
-    <script>
-
-
-        const Http = new XMLHttpRequest();
-        const getInsertInput = () =>{
-            let filter = {};
-            filter.nome = document.querySelector("#name").value;
-            filter.cognome = document.querySelector("#surname").value;
-
-            let obj = JSON.stringify(filter)
-            let params = "in="+obj;
-
-            const url = "/TestApp-server/Test";
-            Http.open("POST", url, true);
-            Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            Http.send(params);
-        
-            Http.onreadystatechange = (e) => {
-                let dati = Http.response;
-                if (dati === "aggiunto correttamente") console.log(dati);
-            }
-        }
-
-        const getValueInput = () =>{
-            let filter = {};
-            filter.nome = document.querySelector("#name").value;
-            filter.cognome = document.querySelector("#surname").value;
-
-            let obj = JSON.stringify(filter)
-            let table = document.querySelector("#table").value;
-            let params = "in="+table;
-            const url = "/TestApp-server/Test";
-            Http.open("POST", url, true);
-            Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            Http.send(params);
-
-            Http.onreadystatechange = (e) => {
-                let dati = Http.response;
-                if(dati){
-                    console.log(dati); 
-                    dataObj = JSON.parse(dati);
-                    console.log(dataObj); 
-                }
-                
-                
-            }
-        }
-       
-        
-        // $(document).ready(function (){
-        //    $("#clicca").click(function(){
-        //        const url = "/TestApp-server/Test?";
-        //        Http.open("GET", url + getValueInput, true);
-        //        Http.send();
-               
-        //        Http.onreadystatechange = (e) => {
-        //         let dati = Http.response;
-        //         console.log(dati);
-        //         console.log(getValueInput);
-        //        }
-        //    })
-        // });
-    </script>
+    <button id="clicca" onclick="_APP_NAME_SPACE__.ConnectDb.prototype.getValueInput()" title="Cerca nel database">Cerca</button>
+    <p id="demo"></p>
 </body>
 </html>

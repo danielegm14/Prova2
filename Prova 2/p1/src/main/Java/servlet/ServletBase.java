@@ -43,12 +43,18 @@ public class ServletBase extends HttpServlet{
         ServiceData sql = new ServiceData();
         // recupero i parametri
         String params = req.getParameter("in");
-      //  JSONObject param = (JSONObject) JSONValue.parse(params);
+        JSONObject param = (JSONObject) JSONValue.parse(params);
+        String method = (String) param.get("method");
+        if(method.equals("insert")){
+            sql.insert(param, req, resp);
+        } else if (method.equals("select")) {
+            sql.get(param, req, resp);
+        }
         //String nome = (String) param.get("nome");
        // String cognome = (String) param.get("cognome");
      //   String table = (String) param.get("table");
-        sql.get(params, req, resp);
-        //sql.insert(nome, cognome);
+
+        //
       //  resp.getWriter().append(params + " aggiunto correttamente");
     }
 }

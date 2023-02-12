@@ -53,9 +53,11 @@ public class ServiceData {
 
     //Statement st; permette di costruire le query
     //ResultSet rs; consente di avere il risultato della query
-    public void insert(String nome, String cognome) throws SQLException, ClassNotFoundException {
+    public void insert(JSONObject params, HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException {
         String table = "utente";
         String colonne = "nome, cognome";
+        String nome = (String) params.get("nome");
+        String cognome = (String) params.get("cognome");
         setNome(nome);
         setCognome(cognome);
         String sql = _insertSql(table, colonne);
@@ -67,8 +69,8 @@ public class ServiceData {
             System.out.println("Secondo step!");
             st = cn.createStatement(); // creo sempre uno statement sulla connessione
             st.execute(sql); // faccio la query su uno statement // per eseguire la query insert into
-            //rs = st.executeQuery(sql);
 
+            resp.getWriter().append("Utente inserito correttamente");
         } catch (SQLException e) {
             System.out.println("errore: " + e.getMessage());
 
@@ -81,8 +83,8 @@ public class ServiceData {
         return selectSql;
     }
 
-    public void get(String tables, HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException {
-        String table = tables;
+    public void get(JSONObject params, HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException {
+        String table = (String) params.get("table");
         String colonne = "*";
         String sql = _selectSql(table, colonne);
         Statement st;
