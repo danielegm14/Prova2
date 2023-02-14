@@ -122,7 +122,7 @@ _APP_NAME_SPACE__.ConnectDb.prototype.inserimento = function () {
     
     var div = this.createElement("div"); // creo contenitore
     var body  = this.querySelector("body"); // seleziono l'attributo
-    div.setAttribute("id", "container"); 
+    div.setAttribute("id", "container");
     let text = this.createTextNode("Ciao"); // creo testo da inserire
     divgit .appendChild(text); // inserisco il testo
     body.appendChild(div); // inserisco il contenitore
