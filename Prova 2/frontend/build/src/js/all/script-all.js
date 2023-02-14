@@ -166,12 +166,25 @@ MyApp.ConnectDb.prototype._isNative = function() {
 
 MyApp.ConnectDb.prototype.inserimento = function () {
     
-    var para = document.createElement("p");
-    // var nodo  = document.createTextNode("Questo è un nuovo paragrafo.");
-    // para.appendChild (nodo);
-    
-    var elemento  = document.getElementById("div1");
-    elemento.append(para);
+    var div = this.createElement("div"); // creo contenitore
+    var body  = this.querySelector("body"); // seleziono l'attributo
+    div.setAttribute("id", "container"); 
+    let text = this.createTextNode("Ciao"); // creo testo da inserire
+    divgit .appendChild(text); // inserisco il testo
+    body.appendChild(div); // inserisco il contenitore
+
+  }
+  
+MyApp.ConnectDb.prototype.querySelector = function (param) {
+    return document.querySelector(param);
+  }
+
+MyApp.ConnectDb.prototype.createElement = function (create) {
+    return document.createElement(create);
+  }
+
+MyApp.ConnectDb.prototype.createTextNode = function (text) {
+    return document.createTextNode(text)
   }
 
 

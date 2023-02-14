@@ -120,12 +120,25 @@ _APP_NAME_SPACE__.ConnectDb.prototype._isNative = function() {
 
 _APP_NAME_SPACE__.ConnectDb.prototype.inserimento = function () {
     
-    var para = document.createElement("p");
-    // var nodo  = document.createTextNode("Questo è un nuovo paragrafo.");
-    // para.appendChild (nodo);
-    
-    var elemento  = document.getElementById("div1");
-    elemento.append(para);
+    var div = this.createElement("div"); // creo contenitore
+    var body  = this.querySelector("body"); // seleziono l'attributo
+    div.setAttribute("id", "container"); 
+    let text = this.createTextNode("Ciao"); // creo testo da inserire
+    divgit .appendChild(text); // inserisco il testo
+    body.appendChild(div); // inserisco il contenitore
+
+  }
+  
+_APP_NAME_SPACE__.ConnectDb.prototype.querySelector = function (param) {
+    return document.querySelector(param);
+  }
+
+_APP_NAME_SPACE__.ConnectDb.prototype.createElement = function (create) {
+    return document.createElement(create);
+  }
+
+_APP_NAME_SPACE__.ConnectDb.prototype.createTextNode = function (text) {
+    return document.createTextNode(text)
   }
 
 
