@@ -50,16 +50,18 @@ MyApp.Utente.prototype.getNome = function() {
  *	@class
  *  @extends  Utente
  */
-
  MyApp.ConnectDb = function() {
     MyApp.Utente.apply(this, arguments);
     this.HTTP = null;
+    this._nativeTag = null;
+    this._tag = null;
 } 
 
 MyApp.ConnectDb.prototype = new MyApp.Utente();
 
 MyApp.ConnectDb.CLASS = "MyApp.ConnectDb";
-var $ = require( "jquery" );
+
+MyApp.ConnectDb.CSS_CLASS = "MyAppWidget"
 
 MyApp.ConnectDb.prototype.init = function() {
     this.HTTP = new XMLHttpRequest();
@@ -118,14 +120,58 @@ MyApp.ConnectDb.prototype.getValueInput = function() {
             } 
         }
     }
-    this._tag = self.document.createElement("div");
-    $(this._tag).addClass("NMSP__WidgetNative");
-
-    return this._tag;
+    this.inserimento();
 }
 
 MyApp.ConnectDb.prototype.getRoot = function() {
 	return this._tplBuild();
 };
+
+MyApp.ConnectDb.prototype._tplBuild = function() {
+	if (null != this._tag) {
+		return this._tag;
+	}
+
+	if (!this._isNative()) {
+		this._tag = this._tplCreateRoot();
+	} else {
+		// sono in modalita nativa
+		this._tag  = this._nativeTag;
+		$(this._tag).addClass("MyAppWidgetNative");
+	}
+	$(this._tag).addClass(MyApp.ConnectDb.CSS_CLASS);
+	this._tplBuildBody();
+	return this._tag;
+};
+
+MyApp.ConnectDb.prototype._tplBuildBody = function() {
+	// metodo virtuale di costruzione HTML
+};
+
+MyApp.ConnectDb.prototype.addClass = function(val) {
+	var trg = this.getRoot();
+	$(trg).addClass(val);
+};
+
+MyApp.ConnectDb.prototype._tplCreateRoot = function() {
+	return self.document.createElement("div");
+};
+
+MyApp.ConnectDb.prototype._isNative = function() {
+	if (this._nativeTag) {
+		return true;
+	}
+	return false;
+};
+
+MyApp.ConnectDb.prototype.inserimento = function () {
+    
+    var para = document.createElement("p");
+    // var nodo  = document.createTextNode("Questo è un nuovo paragrafo.");
+    // para.appendChild (nodo);
+    
+    var elemento  = document.getElementById("div1");
+    elemento.append(para);
+  }
 
 

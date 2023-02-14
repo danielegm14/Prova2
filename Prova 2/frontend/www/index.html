@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
     <script type="text/javascript" src="../src/js/all/script-all.js"></script>
+    <script type="text/javascript" src="../src/js/jquery-3.6.3/jquery-3.6.3.js"></script>
+
 </head>
 <body>
-    <input type="text" id="name" placeholder="inserisci nome...">
+    <!-- <input type="text" id="name" placeholder="inserisci nome...">
     <br>
     <input type="text" id="surname" placeholder="inserisci cognome...">
     <br>
@@ -18,5 +20,55 @@
     <br>
     <button id="clicca" onclick="_APP_NAME_SPACE__.ConnectDb.prototype.getValueInput()" title="Cerca nel database">Cerca</button>
     <p id="demo"></p>
+
+    <br/><br/><br/>
+    <div style="width: 70%; max-width: 35rem;">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label><br/>
+                <input type="email" class="form-control" id="inputEmail4"><br/>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label><br/>
+                <input type="password" class="form-control" id="inputPassword4"><br/>
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label><br/>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"><br/>
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Address 2</label><br/>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"><br/>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label><br/>
+                <input type="text" class="form-control" id="inputCity"><br/>
+            </div>
+            <div class="col-md-4">
+            <label for="inputState" class="form-label">State</label><br/>
+                <select id="inputState" class="form-select"><br/>
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label><br/>
+                <input type="text" class="form-control" id="inputZip"><br/>
+            </div>
+            <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck"><br/>
+                <label class="form-check-label" for="gridCheck"><br/>
+                    Check me out
+                </label>
+            </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button><br/>
+            </div>
+        </form>
+    </div> -->
+    
+    <button id="create" onclick="_APP_NAME_SPACE__.ConnectDb.prototype.inserimento()">Piggia</button>
 </body>
 </html>

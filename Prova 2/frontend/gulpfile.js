@@ -73,4 +73,45 @@ function _buildLibHtml() {
   return stream;
 }
 
+function _buildWorker(isDebug) {
+	var stream = null;
+	var selector = _merge("src/wrk/", workers, ".js");
+
+	for (var i = 0; i < selector.length; i++) {
+		// path e nome di output
+		var workerFile = selector[i];
+		console.log(workerFile);
+		var workerName = workers[i];
+		var outName = ((isDebug) ? workerName : (workerName + '.min')) + ".js";
+		console.log(outName);
+		var out = DST + "/js/wrk/";
+		console.log(out);
+		stream = gulp.src(workerFile);
+
+		// replace delle entry di libreria
+		stream = _replace(stream, _getReplacement());
+		// replace delle entry di stile
+		stream = _replace(stream, skins[CURRENT_SKIN]);
+
+		// direttive di output
+		stream = stream.pipe(
+			concat(outName)
+		);
+
+		// direttive di output
+		if (!isDebug) {
+			stream = stream.pipe(
+				uglify()
+			);
+		}
+
+		stream = stream.pipe(
+			gulp.dest(out)
+		);
+
+		_log("Creato worker di libreria " + outName);
+	}
+
+	return stream;
+};
 //-----------------------------------------------------------------------------------------------------------------------------------------
