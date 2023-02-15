@@ -1,20 +1,16 @@
-.MyAppConnectDb{
+._APP_NAME_SPACE__ConnectDb{
     color: red;
 }
-.MyAppParagrafo{
+._APP_NAME_SPACE__Paragrafo{
     font-size: 50pt;
     display: flex;
     padding: 10px
 }
 
-.MyAppBottone{
+._APP_NAME_SPACE__Bottone{
     padding: 10px;
     background-color: blueviolet;
     color: yellow;
     margin: 10px;
     
-}
-
-.MyAppUtente{
-    font-size: 20pt;
 }

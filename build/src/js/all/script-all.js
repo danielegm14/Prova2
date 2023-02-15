@@ -61,7 +61,8 @@ MyApp.ConnectDb.prototype = new MyApp.Utente();
 
 MyApp.ConnectDb.CLASS = "MyApp.ConnectDb";
 
-MyApp.ConnectDb.CSS_CLASS = "MyAppWidget"
+MyApp.ConnectDb.CSS_CLASS = "MyAppConnectDb"
+MyApp.ConnectDb.CSS_CLASS_UTENTE = "MyAppUtente"
 
 MyApp.ConnectDb.prototype.init = function() {
     this.HTTP = new XMLHttpRequest();
@@ -164,15 +165,40 @@ MyApp.ConnectDb.prototype._isNative = function() {
 	return false;
 };
 
-MyApp.ConnectDb.prototype.inserimento = function () {
-    
-    var div = this.createElement("div"); // creo contenitore
-    var body  = this.querySelector("body"); // seleziono l'attributo
-    div.setAttribute("id", "container"); 
-    let text = this.createTextNode("Ciao"); // creo testo da inserire
-    divgit .appendChild(text); // inserisco il testo
-    body.appendChild(div); // inserisco il contenitore
+// MyApp.ConnectDb.prototype.inserimento = function () {
+//     var div = this.createElement("div"); // creo contenitore
+//     var body  = this.querySelector("body"); // seleziono l'attributo
+//     div.setAttribute("id", "container");
+//     let text = this.createTextNode("Ciao"); // creo testo da inserire
+//     this.className(div, MyApp.ConnectDb.CSS_CLASS); //  inserisco la classe css
+//     this.className(div, MyApp.ConnectDb.CSS_CLASS_UTENTE); //  inserisco la classe css
 
+//     div.appendChild(text); // inserisco il testo
+//     body.appendChild(div); // inserisco il contenitore
+    
+//   }
+
+MyApp.ConnectDb.prototype.inserimento = function () {
+    var body  = this.querySelector("body"); // seleziono l'attributo
+    var div = this.createElement("div"); // creo contenitore
+    var input  = this.createElement("input"); // creo input
+    var button  = this.createElement("button"); // button
+    var p  = this.createElement("p"); // creo paragrafo
+    let text = this.createTextNode("PREMI QUI");
+    div.setAttribute("id", "container");// creo id = container
+    input.setAttribute("id", "textIn"); // creo id = textIn
+    button.setAttribute("id", "bottone"); // creo id = bottone
+    button.setAttribute("onclick", "MyApp.ConnectDb.prototype.saluta()"); // creo id = container + evento click
+    p.setAttribute("id", "risultato"); // creo id = container
+    this.className(div, MyApp.ConnectDb.CSS_CLASS); //  inserisco la classe css
+    this.className(p, "MyAppParagrafo"); //  inserisco la classe css
+    this.className(button, "MyAppBottone"); //  inserisco la classe css
+    // this.className(div, MyApp.ConnectDb.CSS_CLASS_UTENTE); //  inserisco la classe css
+
+    button.appendChild(text); // inserisco il contenitore
+    div.append(input, button, p); // appendo tutto
+    body.appendChild(div); // inserisco il contenitore
+    
   }
   
 MyApp.ConnectDb.prototype.querySelector = function (param) {
@@ -187,4 +213,14 @@ MyApp.ConnectDb.prototype.createTextNode = function (text) {
     return document.createTextNode(text)
   }
 
+MyApp.ConnectDb.prototype.className = function (addClass, cssName) {
+    addClass.className += " " + cssName;
+  }
 
+MyApp.ConnectDb.prototype.saluta = function () {
+    let p = document.querySelector("#risultato")
+    let text = this.createTextNode("BRAVO!"); // creo testo da inserire
+    p.appendChild(text);
+  }
+
+  

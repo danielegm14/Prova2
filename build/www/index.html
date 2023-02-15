@@ -7,9 +7,10 @@
     <title>Home page</title>
     <script type="text/javascript" src="../src/js/all/script-all.js"></script>
     <script type="text/javascript" src="../src/js/jquery-3.6.3/jquery-3.6.3.js"></script>
+    <link href="../src/skin/style.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body onload="MyApp.ConnectDb.prototype.inserimento()">
     <!-- <input type="text" id="name" placeholder="inserisci nome...">
     <br>
     <input type="text" id="surname" placeholder="inserisci cognome...">
@@ -21,6 +22,7 @@
     <button id="clicca" onclick="MyApp.ConnectDb.prototype.getValueInput()" title="Cerca nel database">Cerca</button>
     <p id="demo"></p>
 
+    
     <br/><br/><br/>
     <div style="width: 70%; max-width: 35rem;">
         <form class="row g-3">
@@ -68,7 +70,8 @@
             </div>
         </form>
     </div> -->
+
     
-    <button id="create" onclick="MyApp.ConnectDb.prototype.inserimento()">Piggia</button>
+    <!-- <button id="create" onclick="MyApp.ConnectDb.prototype.inserimento()">Piggia</button> -->
 </body>
 </html>
